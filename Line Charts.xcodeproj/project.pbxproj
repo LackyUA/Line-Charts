@@ -7,8 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040C707B2244DFFE00F80CB0 /* CGFloat+getDoubleValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C707A2244DFFE00F80CB0 /* CGFloat+getDoubleValue.swift */; };
+		04135A7A22439F6B00849310 /* UIColor+HexInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04135A7922439F6B00849310 /* UIColor+HexInit.swift */; };
+		04135A7C22439FC900849310 /* Sequence+MinMax+ClosestValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04135A7B22439FC900849310 /* Sequence+MinMax+ClosestValues.swift */; };
+		04135A7E2243A0BF00849310 /* Array+Merge+ValidIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04135A7D2243A0BF00849310 /* Array+Merge+ValidIndex.swift */; };
+		04853813223B9FA4002B8D34 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04853812223B9FA4002B8D34 /* ChartView.swift */; };
+		04853815223BEE99002B8D34 /* ChartLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04853814223BEE99002B8D34 /* ChartLine.swift */; };
+		04892E55223F8D9F00596E2B /* ChartListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04892E54223F8D9F00596E2B /* ChartListTableViewController.swift */; };
+		04892E59223FD06F00596E2B /* StatisticsChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04892E58223FD06F00596E2B /* StatisticsChartViewController.swift */; };
+		04892E5B223FD74900596E2B /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04892E5A223FD74900596E2B /* ChartCell.swift */; };
+		04892E5D223FDD1B00596E2B /* ChartConfigurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04892E5C223FDD1B00596E2B /* ChartConfigurationCell.swift */; };
+		04892E5F223FDD2F00596E2B /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04892E5E223FDD2F00596E2B /* ThemeCell.swift */; };
 		04C49D0022365384004FA182 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C49CFF22365384004FA182 /* AppDelegate.swift */; };
-		04C49D0222365384004FA182 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C49D0122365384004FA182 /* ViewController.swift */; };
 		04C49D0522365384004FA182 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C49D0322365384004FA182 /* Main.storyboard */; };
 		04C49D0722365386004FA182 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C49D0622365386004FA182 /* Assets.xcassets */; };
 		04C49D0A22365386004FA182 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C49D0822365386004FA182 /* LaunchScreen.storyboard */; };
@@ -39,9 +49,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040C707A2244DFFE00F80CB0 /* CGFloat+getDoubleValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+getDoubleValue.swift"; sourceTree = "<group>"; };
+		04135A7922439F6B00849310 /* UIColor+HexInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexInit.swift"; sourceTree = "<group>"; };
+		04135A7B22439FC900849310 /* Sequence+MinMax+ClosestValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+MinMax+ClosestValues.swift"; sourceTree = "<group>"; };
+		04135A7D2243A0BF00849310 /* Array+Merge+ValidIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Merge+ValidIndex.swift"; sourceTree = "<group>"; };
+		04853812223B9FA4002B8D34 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		04853814223BEE99002B8D34 /* ChartLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartLine.swift; sourceTree = "<group>"; };
+		04892E54223F8D9F00596E2B /* ChartListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartListTableViewController.swift; sourceTree = "<group>"; };
+		04892E58223FD06F00596E2B /* StatisticsChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsChartViewController.swift; sourceTree = "<group>"; };
+		04892E5A223FD74900596E2B /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
+		04892E5C223FDD1B00596E2B /* ChartConfigurationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartConfigurationCell.swift; sourceTree = "<group>"; };
+		04892E5E223FDD2F00596E2B /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
 		04C49CFC22365384004FA182 /* Line Charts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Line Charts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C49CFF22365384004FA182 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04C49D0122365384004FA182 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		04C49D0422365384004FA182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04C49D0622365386004FA182 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04C49D0922365386004FA182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -121,6 +141,7 @@
 				04C49D0822365386004FA182 /* LaunchScreen.storyboard */,
 				04C49D0B22365386004FA182 /* Info.plist */,
 				04D1D4A32237BECE00898374 /* Helpers */,
+				04D1D4AD2237E67500898374 /* Views */,
 				04D1D4A22237BEB100898374 /* Models */,
 				04D1D4A42237BEEA00898374 /* Controllers */,
 			);
@@ -149,6 +170,10 @@
 			isa = PBXGroup;
 			children = (
 				04D1D4A02237BE5600898374 /* Int+ConvertDate.swift */,
+				04135A7922439F6B00849310 /* UIColor+HexInit.swift */,
+				04135A7B22439FC900849310 /* Sequence+MinMax+ClosestValues.swift */,
+				04135A7D2243A0BF00849310 /* Array+Merge+ValidIndex.swift */,
+				040C707A2244DFFE00F80CB0 /* CGFloat+getDoubleValue.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -157,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				04D1D49B2237A4DC00898374 /* ChartData.swift */,
+				04853814223BEE99002B8D34 /* ChartLine.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,9 +201,21 @@
 		04D1D4A42237BEEA00898374 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				04C49D0122365384004FA182 /* ViewController.swift */,
+				04892E54223F8D9F00596E2B /* ChartListTableViewController.swift */,
+				04892E58223FD06F00596E2B /* StatisticsChartViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		04D1D4AD2237E67500898374 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				04853812223B9FA4002B8D34 /* ChartView.swift */,
+				04892E5A223FD74900596E2B /* ChartCell.swift */,
+				04892E5C223FDD1B00596E2B /* ChartConfigurationCell.swift */,
+				04892E5E223FDD2F00596E2B /* ThemeCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,11 +351,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				04D1D4A12237BE5600898374 /* Int+ConvertDate.swift in Sources */,
-				04C49D0222365384004FA182 /* ViewController.swift in Sources */,
+				04853815223BEE99002B8D34 /* ChartLine.swift in Sources */,
+				04892E5F223FDD2F00596E2B /* ThemeCell.swift in Sources */,
+				04135A7E2243A0BF00849310 /* Array+Merge+ValidIndex.swift in Sources */,
+				04892E5D223FDD1B00596E2B /* ChartConfigurationCell.swift in Sources */,
+				04892E59223FD06F00596E2B /* StatisticsChartViewController.swift in Sources */,
+				040C707B2244DFFE00F80CB0 /* CGFloat+getDoubleValue.swift in Sources */,
 				04D1D4A62237BF1C00898374 /* Parser.swift in Sources */,
 				04C49D0022365384004FA182 /* AppDelegate.swift in Sources */,
 				04D1D49C2237A4DC00898374 /* ChartData.swift in Sources */,
+				04892E55223F8D9F00596E2B /* ChartListTableViewController.swift in Sources */,
+				04892E5B223FD74900596E2B /* ChartCell.swift in Sources */,
+				04135A7A22439F6B00849310 /* UIColor+HexInit.swift in Sources */,
 				04D1D49E2237B83100898374 /* Contants.swift in Sources */,
+				04135A7C22439FC900849310 /* Sequence+MinMax+ClosestValues.swift in Sources */,
+				04853813223B9FA4002B8D34 /* ChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

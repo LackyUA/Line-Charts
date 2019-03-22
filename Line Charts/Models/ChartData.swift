@@ -8,19 +8,22 @@
 
 import Foundation
 
-protocol ChartValues: AnyObject {
+protocol DecodingChartValues: AnyObject {
     var columns: [String : [Int]] { get }
     var types: [String: String] { get }
     var names: [String: String] { get }
-    var colors: [String: String] { get }
+    var colors: [String: String] { get set }
 }
 
-final class ChartData: NSObject, Decodable, ChartValues {
+final class ChartData: NSObject, Decodable, DecodingChartValues {
+    
+    // MARK: - Properties
     var types: [String : String] = [:]
     var names: [String : String] = [:]
     var colors: [String : String] = [:]
     var columns: [String : [Int]] = [:]
     
+    // MARK: - Enumeration with coding keys
     private enum CodingKeys: String, CodingKey {
         case types
         case names
@@ -28,6 +31,7 @@ final class ChartData: NSObject, Decodable, ChartValues {
         case columns
     }
     
+    // MARK: - Enumeration for decoding different types data
     private enum ArrayValue: Decodable {
         case string(String)
         case int(Int)
@@ -55,6 +59,7 @@ final class ChartData: NSObject, Decodable, ChartValues {
         }
     }
     
+    // MARK: - Decoder initializer
     required init(from decoder: Decoder) throws {
         super.init()
         

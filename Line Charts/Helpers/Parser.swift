@@ -13,6 +13,7 @@ protocol ParseData: AnyObject {
 }
 
 class Parser: ParseData {
+    
     func getDataFromFile(completion: @escaping ([ChartData]) -> Void) {
         var charts = [ChartData]()
         
@@ -32,7 +33,9 @@ class Parser: ParseData {
                     print("Error:", parsingError)
                 }
             }
+            
             task.resume()
         }
     }
+    
 }
