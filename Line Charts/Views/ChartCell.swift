@@ -8,15 +8,24 @@
 
 import UIKit
 
+protocol ChartCellControllers {
+    func remove(at index: Int)
+    func add(_ line: ChartLine, at index: Int, isInsert: Bool)
+}
+
 class ChartCell: UITableViewCell {
     
     // MARK: - Properties
     private var initialDetailsConstraint: CGFloat!
+    private var chartLines: [ChartLine] = []
     
     // MARK: - IBOutlets
+    @IBOutlet private var detailsDateLabels: [UILabel]!
+    @IBOutlet private var detailsValueLabels: [UILabel]!
+    
     @IBOutlet private weak var chartView: ChartView!
+    
     @IBOutlet private weak var detailsView: UIView!
-    @IBOutlet private var detailsLabels: [UILabel]!
     @IBOutlet private weak var detailsConstraint: NSLayoutConstraint!
 
     // MARK: - Life circle
@@ -25,23 +34,14 @@ class ChartCell: UITableViewCell {
         
         chartView.delegate = self
         initialDetailsConstraint = detailsConstraint.constant
+        
         detailsView.alpha = 0
-    }
-    
-    func removeLine(at index: Int, count: Int) {
-        chartView.removeLine(at: [index, count].getValidIndex())
-    }
-    
-    func add(line: ChartLine, at index: Int, count: Int) {
-        if count > index {
-            chartView.insert(line, at: index)
-        } else {
-            chartView.add(line)
-        }
+        detailsValueLabels.forEach { $0.isHidden = true }
     }
     
     // MARK: - Configure cell
     func configure(chart: [ChartLine]) {
+        self.chartLines = chart
         drawChart(chart: chart)
     }
     
@@ -57,8 +57,11 @@ class ChartCell: UITableViewCell {
 
 // MARK: - Chart view delegation
 extension ChartCell: ChartDelegate {
+    
     func didTouchChart(_ chart: ChartView, valuesIndices: Array<Int?>, xValue: Double, position: CGFloat) {
-        detailsView.alpha = 1
+        if self.chartLines.count > 0 {
+            detailsView.alpha = 1
+        }
         
         for (seriesIndex, dataIndex) in valuesIndices.enumerated() {
             if let value = chart.valueForLine(seriesIndex, atIndex: dataIndex) {
@@ -95,7 +98,7 @@ extension ChartCell: ChartDelegate {
     }
     
     private func update(date: Double) {
-        for label in detailsLabels {
+        for label in detailsDateLabels {
             switch label.tag {
                 
             case 0:
@@ -110,16 +113,11 @@ extension ChartCell: ChartDelegate {
     }
     
     private func update(value: String, index: Int) {
-        for label in detailsLabels {
-            switch label.tag {
-                
-            case 2 where index == 0:
+        for label in detailsValueLabels {
+            if index == label.tag {
+                label.isHidden = false
                 label.text = value
-            case 3 where index == 1:
-                label.text = value
-            default:
-                break
-                
+                label.textColor = chartLines[index].color
             }
         }
     }
@@ -128,4 +126,37 @@ extension ChartCell: ChartDelegate {
         detailsView.alpha = 0
         detailsConstraint.constant = initialDetailsConstraint
     }
+    
+}
+
+// MARK: - ChartCellControllers delegation
+extension ChartCell: ChartCellControllers {
+    
+    func remove(at index: Int) {
+        detailsValueLabels[chartLines.count - 1].isHidden = true
+        chartView.removeLine(at: index)
+        chartLines.remove(at: index)
+    }
+    
+    func add(_ line: ChartLine, at index: Int, isInsert: Bool) {
+        if isInsert {
+            chartLines.insert(line, at: index)
+            chartView.insert(line, at: index)
+            showLabel(at: index)
+        } else {
+            chartLines.append(line)
+            chartView.add(line)
+            showLabel(at: index)
+        }
+    }
+    
+    // MARK: - Helpers
+    private func showLabel(at index: Int) {
+        detailsValueLabels.forEach { label in
+            if label.tag == index {
+                label.isHidden = false
+            }
+        }
+    }
+    
 }

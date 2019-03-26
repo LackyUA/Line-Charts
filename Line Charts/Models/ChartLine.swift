@@ -9,26 +9,24 @@
 import UIKit
 
 protocol Line: AnyObject {
-    associatedtype Point
-    
-    var data: [(x: Double, y: Double)] { get set }
+    var data: [ChartPoint] { get set }
     var color: UIColor { get }
     var name: String { get }
     
-    func divideIntoSegments() -> [[Point]]
-    func getMarginals(min: inout Point, max: inout Point)
+    func divideIntoSegments() -> [[ChartPoint]]
+    func getMarginals(min: inout ChartPoint, max: inout ChartPoint)
 }
 
 final class ChartLine: NSObject, Line {
     
     // MARK: - Properties
-    var data: [(x: Double, y: Double)]
+    var data: [ChartPoint]
     var color: UIColor
     var name: String
     
     // MARK: - Initializers
     required init(data: [(x: Double, y: Double)], color: UIColor, name: String) {
-        self.data = data
+        self.data = data.map { ChartPoint(x: $0.x, y: $0.y) }
         self.color = color
         self.name = name
     }
@@ -42,9 +40,9 @@ final class ChartLine: NSObject, Line {
     }
     
     // MARK: - Methods for division of the line into segments
-    func divideIntoSegments() -> [[(x: Double, y: Double)]] {
-        var segments: [[Point]] = []
-        var segment: [Point] = []
+    func divideIntoSegments() -> [[ChartPoint]] {
+        var segments: [[ChartPoint]] = []
+        var segment: [ChartPoint] = []
         
         self.data.enumerated().forEach { (index, point) in
             segment.append(point)
@@ -67,7 +65,7 @@ final class ChartLine: NSObject, Line {
     }
     
     // MARK: - Method for geting min/max points
-    func getMarginals(min: inout (x: Double, y: Double), max: inout (x: Double, y: Double)) {
+    func getMarginals(min: inout ChartPoint, max: inout ChartPoint) {
         min.x = min.x < self.data.map { $0.x }.minOrZero() ? min.x : self.data.map { $0.x }.minOrZero()
         min.y = min.y < self.data.map { $0.y }.minOrZero() ? min.y : self.data.map { $0.y }.minOrZero()
         max.x = max.x > self.data.map { $0.x }.maxOrZero() ? max.x : self.data.map { $0.x }.maxOrZero()

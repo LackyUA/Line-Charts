@@ -17,7 +17,7 @@ protocol ChartDelegate {
 class ChartView: UIControl {
     
     // MARK: - Private properties
-    private typealias ChartPoint = (x: Double, y: Double)
+//    private typealias ChartPoint = (x: Double, y: Double)
     private typealias ChartLineSegment = [ChartPoint]
     
     private var highlightShapeLayer: CAShapeLayer!
@@ -112,14 +112,14 @@ class ChartView: UIControl {
         highlightShapeLayer = nil
         
         guard let line = lines.first else {
-            min = (x: 0, y: 0)
-            max = (x: 0, y: 0)
+            min = ChartPoint(x: 0, y: 0)
+            max = ChartPoint(x: 0, y: 0)
             
             return
         }
         
-        min = (x: line.data.map { $0.x }.minOrZero(), y: line.data.map { $0.y }.minOrZero())
-        max = (x: line.data.map { $0.x }.maxOrZero(), y: line.data.map { $0.y }.maxOrZero())
+        min = ChartPoint(x: line.data.map { $0.x }.minOrZero(), y: line.data.map { $0.y }.minOrZero())
+        max = ChartPoint(x: line.data.map { $0.x }.maxOrZero(), y: line.data.map { $0.y }.maxOrZero())
         
         for line in self.lines {
             line.getMarginals(min: &min, max: &max)

@@ -18,6 +18,8 @@
 		04892E5B223FD74900596E2B /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04892E5A223FD74900596E2B /* ChartCell.swift */; };
 		04892E5D223FDD1B00596E2B /* ChartConfigurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04892E5C223FDD1B00596E2B /* ChartConfigurationCell.swift */; };
 		04892E5F223FDD2F00596E2B /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04892E5E223FDD2F00596E2B /* ThemeCell.swift */; };
+		049AC4932248D4C9004D3202 /* String+ColorFromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049AC4922248D4C9004D3202 /* String+ColorFromString.swift */; };
+		04B443E4224A30B100E0FB67 /* ChartPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B443E3224A30B100E0FB67 /* ChartPoint.swift */; };
 		04C49D0022365384004FA182 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C49CFF22365384004FA182 /* AppDelegate.swift */; };
 		04C49D0522365384004FA182 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C49D0322365384004FA182 /* Main.storyboard */; };
 		04C49D0722365386004FA182 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C49D0622365386004FA182 /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 		04892E5A223FD74900596E2B /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
 		04892E5C223FDD1B00596E2B /* ChartConfigurationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartConfigurationCell.swift; sourceTree = "<group>"; };
 		04892E5E223FDD2F00596E2B /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
+		049AC4922248D4C9004D3202 /* String+ColorFromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ColorFromString.swift"; sourceTree = "<group>"; };
+		04B443E3224A30B100E0FB67 /* ChartPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPoint.swift; sourceTree = "<group>"; };
 		04C49CFC22365384004FA182 /* Line Charts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Line Charts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C49CFF22365384004FA182 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C49D0422365384004FA182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				04135A7B22439FC900849310 /* Sequence+MinMax+ClosestValues.swift */,
 				04135A7D2243A0BF00849310 /* Array+Merge+ValidIndex.swift */,
 				040C707A2244DFFE00F80CB0 /* CGFloat+getDoubleValue.swift */,
+				049AC4922248D4C9004D3202 /* String+ColorFromString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 			children = (
 				04D1D49B2237A4DC00898374 /* ChartData.swift */,
 				04853814223BEE99002B8D34 /* ChartLine.swift */,
+				04B443E3224A30B100E0FB67 /* ChartPoint.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -286,13 +292,16 @@
 				TargetAttributes = {
 					04C49CFB22365384004FA182 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					04C49D0F22365386004FA182 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 04C49CFB22365384004FA182;
 					};
 					04C49D1A22365386004FA182 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 04C49CFB22365384004FA182;
 					};
 				};
@@ -361,11 +370,13 @@
 				04C49D0022365384004FA182 /* AppDelegate.swift in Sources */,
 				04D1D49C2237A4DC00898374 /* ChartData.swift in Sources */,
 				04892E55223F8D9F00596E2B /* ChartListTableViewController.swift in Sources */,
+				04B443E4224A30B100E0FB67 /* ChartPoint.swift in Sources */,
 				04892E5B223FD74900596E2B /* ChartCell.swift in Sources */,
 				04135A7A22439F6B00849310 /* UIColor+HexInit.swift in Sources */,
 				04D1D49E2237B83100898374 /* Contants.swift in Sources */,
 				04135A7C22439FC900849310 /* Sequence+MinMax+ClosestValues.swift in Sources */,
 				04853813223B9FA4002B8D34 /* ChartView.swift in Sources */,
+				049AC4932248D4C9004D3202 /* String+ColorFromString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,7 +560,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "lackyua.co.Line-Charts";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -567,7 +578,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "lackyua.co.Line-Charts";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -587,7 +598,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "lackyua.co.Line-ChartsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Line Charts.app/Line Charts";
 			};
@@ -608,7 +619,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "lackyua.co.Line-ChartsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Line Charts.app/Line Charts";
 			};
@@ -628,7 +639,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "lackyua.co.Line-ChartsUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Line Charts";
 			};
@@ -648,7 +659,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "lackyua.co.Line-ChartsUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Line Charts";
 			};

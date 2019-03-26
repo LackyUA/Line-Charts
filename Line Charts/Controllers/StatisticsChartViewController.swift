@@ -12,7 +12,7 @@ class StatisticsChartViewController: UITableViewController {
     
     // MARK: - Properties
     var chart = [ChartLine]()
-    var removedLines = [Int: ChartLine]()
+    private var removedLines = [Int: ChartLine]()
     
     // MARK: - Life circle
     override func viewDidLoad() {
@@ -70,6 +70,8 @@ class StatisticsChartViewController: UITableViewController {
         guard let selectedCell = tableView.cellForRow(at: indexPath) else { return }
         guard let chartCell = tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? ChartCell else { return }
         
+        let index = indexPath.row - 1
+        
         selectedCell.isSelected = false
         
         switch indexPath.section {
@@ -81,14 +83,19 @@ class StatisticsChartViewController: UITableViewController {
                 case .none:
                     selectedCell.accessoryType = .checkmark
                     
-                    chartCell.add(line: add(at: indexPath.row - 1), at: indexPath.row - 1, count: chart.count)
+                    if chart.count > index {
+                        chart.insert(removedLines[index]!, at: index)
+                        chartCell.add(removedLines.removeValue(forKey: index)!, at: index, isInsert: true)
+                    } else {
+                        chart.append(removedLines[index]!)
+                        chartCell.add(removedLines.removeValue(forKey: index)!, at: chart.count - 1, isInsert: false)
+                    }
                     
                 case .checkmark:
                     selectedCell.accessoryType = .none
                     
-                    remove(at: indexPath.row - 1)
-                    print(removedLines)
-                    chartCell.removeLine(at: indexPath.row - 1, count: chart.count + 1)
+                    removedLines[index] = chart.remove(at: [index, chart.count].getValidIndex())
+                    chartCell.remove(at: [index, chart.count + 1].getValidIndex())
                     
                 default:
                     break
@@ -112,20 +119,6 @@ class StatisticsChartViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "FOLLOWERS"
-    }
-    
-    private func remove(at index: Int) {
-        removedLines[index] = chart.remove(at: [index, chart.count].getValidIndex())
-    }
-    
-    private func add(at index: Int) -> ChartLine {
-        if chart.count > index {
-            chart.insert(removedLines[index]!, at: index)
-        } else {
-            chart.append(removedLines[index]!)
-        }
-        
-        return removedLines.removeValue(forKey: index)!
     }
     
 }

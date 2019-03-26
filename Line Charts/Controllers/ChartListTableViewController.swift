@@ -53,16 +53,6 @@ class ChartListTableViewController: UITableViewController {
     }
     
     // MARK: - Helper functions
-    private func colorFrom(string: String) -> UIColor{
-        var stringColor = string
-        stringColor.removeFirst()
-        
-        var color: UInt32 = 0
-        Scanner(string: "0x" + stringColor).scanHexInt32(&color)
-        
-        return UIColor(rgb: Int(color))
-    }
-    
     private func getChartLinesFor(chart: ChartData) -> [ChartLine] {
         var chartLines = [ChartLine]()
         
@@ -71,7 +61,7 @@ class ChartListTableViewController: UITableViewController {
                 var lineData = [(x: Double, y: Double)]()
                 
                 guard let stringColor = chart.colors[args.key] else { return }
-                let lineColor = colorFrom(string: stringColor)
+                let lineColor = stringColor.convertToUIColor()
                 
                 guard let lineName = chart.names[args.key] else { return }
                 
