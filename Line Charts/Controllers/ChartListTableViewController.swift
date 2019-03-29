@@ -22,10 +22,10 @@ class ChartListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         DispatchQueue.global().async {
-            self.parser.getDataFromFile { charts in
-                self.charts = charts
+            self.parser.getDataFromFile { [weak self] charts in
+                self?.charts = charts
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    self?.tableView.reloadData()
                 }
             }
         }

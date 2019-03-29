@@ -36,15 +36,13 @@ class StatisticsChartViewController: UITableViewController {
             if !(indexPath.row > 0) {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.reusableIdentifier.chart, for: indexPath) as? ChartCell else { return UITableViewCell() }
                 
-                cell.configure(chart: chart)
+                cell.configure(chart)
                 
                 return cell
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.reusableIdentifier.chartConfiguration, for: indexPath) as? ChartConfigurationCell else { return UITableViewCell() }
                 
-                cell.imageView?.image = cell.imageView?.image?.withRenderingMode(.alwaysTemplate)
-                cell.imageView?.tintColor = chart[indexPath.row - 1].color
-                cell.textLabel?.text = chart[indexPath.row - 1].name
+                cell.configure(chart[indexPath.row - 1])
                 
                 return cell
             }
@@ -53,8 +51,7 @@ class StatisticsChartViewController: UITableViewController {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.reusableIdentifier.theme, for: indexPath) as? ThemeCell else { return UITableViewCell() }
             
-            cell.textLabel?.text = "Switch theme bro"
-            cell.textLabel?.textAlignment = .center
+            cell.configure(text: "Switch theme bro")
             
             return cell
             
@@ -71,7 +68,6 @@ class StatisticsChartViewController: UITableViewController {
         guard let chartCell = tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? ChartCell else { return }
         
         let index = indexPath.row - 1
-        
         selectedCell.isSelected = false
         
         switch indexPath.section {

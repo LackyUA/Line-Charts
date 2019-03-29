@@ -40,7 +40,7 @@ class ChartCell: UITableViewCell {
     }
     
     // MARK: - Configure cell
-    func configure(chart: [ChartLine]) {
+    func configure(_ chart: [ChartLine]) {
         self.chartLines = chart
         drawChart(chart: chart)
     }

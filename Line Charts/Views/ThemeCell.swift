@@ -10,4 +10,9 @@ import UIKit
 
 class ThemeCell: UITableViewCell {
     
+    func configure(text: String) {
+        textLabel?.text = text
+        textLabel?.textAlignment = .center
+    }
+    
 }

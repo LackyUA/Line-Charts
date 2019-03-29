@@ -10,4 +10,10 @@ import UIKit
 
 class ChartConfigurationCell: UITableViewCell {
     
+    func configure(_ chart: ChartLine) {
+        imageView?.image = imageView?.image?.withRenderingMode(.alwaysTemplate)
+        imageView?.tintColor = chart.color
+        textLabel?.text = chart.name
+    }
+    
 }
